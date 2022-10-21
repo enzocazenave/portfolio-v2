@@ -1,0 +1,961 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --white-text: rgb(220,220,220);
+    --orange: rgb(239,98,84)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #202020;
+}
+
+.display {
+    display: block;
+    transition: visibility 1s;
+}
+
+.loader {
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--orange);
+    border-left-color: var(--white-text);
+    border-radius: 50%;
+    animation: 2s spin ease-in-out infinite;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.navbar {
+    background-color: transparent;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 12px;
+    transition: all .5s;
+    z-index: 1000;
+}
+
+.navbar.active {
+    background-color: #101010;
+    padding: 10px;
+}
+
+.navbar-language {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: opacity .4s;
+}
+
+.navbar-item {
+    text-decoration: none;
+    color: var(--white-text);
+    margin: 0 20px;
+    font-size: 20px;
+    font-weight: 500;
+    transition: color .3s;
+}
+
+.navbar-button {
+    color: var(--orange);
+    margin: 0 20px;
+    font-size: 20px;
+    padding: 10px;
+    border: 1px solid var(--orange);
+    border-radius: 10px;
+    background-color: transparent;
+    transition: all .3s;
+}
+
+.navbar-button:hover {
+    background-color: var(--orange);
+    color: var(--white-text);
+    cursor: pointer;
+}
+
+.SELECTED-navbar-item {
+    color: var(--orange);
+    font-weight: 600;
+}
+
+.navbar-item:hover {
+    color: var(--orange);
+    cursor: pointer;
+}
+
+.navbar-logo {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    transition: all .5s;
+}
+
+.navbar-logo.active {
+    width: 45px;
+    height: 45px;
+}
+
+.navbar-brand {
+    width: 146.52px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px
+}
+
+.navbar-language:hover {
+    opacity: .8;
+    cursor: pointer;
+}
+
+.home {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.80)), url("https://wallpaperaccess.com/full/279547.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.home-text {
+    text-align: center;
+}
+
+.home-title {
+    color: var(--orange);
+    font-size: 80px;
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+
+.home-description {
+    color:var(--white-text);
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.home-anchor {
+    color: var(--white-text);
+    margin: 0 20px;
+    font-size: 30px;
+    padding: 10px;
+    border: 1px solid var(--orange);
+    border-radius: 50%;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    transition: background .3s;
+}
+
+.home-anchor i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.home-anchor:hover {
+    background-color: rgba(134, 134, 134, 0.255);
+    cursor: pointer;
+}
+
+.about {
+    width: 100%;
+    height: 100vh;
+    border-top: 2px solid var(--orange);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.80)), url("https://cdn.discordapp.com/attachments/1008885821027405958/1029818215896977468/pexels-karolina-grabowska-5208871.jpg");
+    background-size: cover;
+}
+
+.about-frame {
+    flex-grow: 1;
+    text-align: center;
+    max-width: fit-content;
+}
+
+.about-image {
+    width: 380px;
+    height: 500px;
+    object-fit: cover;
+    border-image: round; 
+    border-radius: 50px 0 50px 0;
+    padding: 10px;
+    border-top: 10px solid var(--orange);
+    border-left: 10px solid var(--orange);
+}
+
+.about-me {
+    flex-grow: 1;
+    max-width: 50%;
+}
+
+.about-title {
+    color: var(--white-text);
+    margin-bottom: 20px;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.about-title span {
+    color: var(--orange);
+    margin-right: 5px;
+}
+
+.about-description {
+    color: var(--white-text);
+    line-height: 1.5;
+    letter-spacing: 1px;
+}
+
+.about-information {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    gap: 15px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border: 1px solid var(--orange);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.about-info_title {
+    color: var(--orange);
+    font-size: 17px;
+    text-align: center;
+    display: block;
+    font-weight: 500;
+}
+
+.about-info_text {
+    margin-top: 4px;
+    font-size: 15px;
+    color: var(--white-text);
+    display: block;
+    text-align: center;
+}
+
+.about-button {
+    margin-top: 30px;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: var(--orange);
+    border: none;
+    border-radius: 15px;
+    color: var(--white-text);
+    transition: all .3s;
+    text-decoration: none;
+}
+
+.about-button i {
+    margin-right: 10px;
+}
+
+.about-button:hover {
+    background-color: transparent;
+    box-shadow: 0px 0px 0px 1px var(--orange);
+    color: var(--orange);
+    cursor: pointer;
+}
+
+.experience {
+    width: 100%;
+    height: 100vh;
+    border-top: 2px solid var(--orange);
+    background: linear-gradient(rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.80)), url("https://cdn.discordapp.com/attachments/1008885821027405958/1030230963990581318/634883447afc4.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.experience-paragraph {
+    max-width: 32%;
+}
+
+.experience-title {
+    color: var(--white-text);
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.experience-text {
+    color: var(--white-text);
+    line-height: 1.5;
+    letter-spacing: 1px;
+    font-size: 17px;
+}
+
+.experience-text span {
+    color: var(--orange)
+}
+
+.experience-title span {
+    color: var(--orange);
+}
+
+.experience-cards {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+    max-width: 60%;
+    grid-gap: 20px;
+}
+
+.experience-card {
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(30px);
+}
+
+.experience-card:first-child {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.experience-card-title_ {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--orange);
+}
+
+.experience-card-title {
+    color: var(--white-text);
+    font-style: italic;
+    font-weight: 600;
+}
+
+.experience-card-title span {
+    color: var(--orange);
+    margin-right: 5px;
+}
+
+.experience-card-button {
+    color: var(--orange);
+    font-size: 20px;
+    padding: 10px;
+    border: 1px solid var(--orange);
+    border-radius: 10px;
+    background-color: transparent;
+    transition: all .3s;
+}
+
+.experience-card-button:hover {
+    background-color: var(--orange);
+    color: #202020;
+    cursor: pointer;
+}
+
+.experience-card_github {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid var(--orange);
+}
+
+.experience-card-section {
+    border-radius: 10px;
+    text-align: center;
+}
+
+.experience-card-section_title {
+    color: var(--orange);
+    font-size: 20px;
+}
+
+.experience-card-section_text {
+    margin-top: 5px;
+    color: var(--white-text);
+    font-size: 15px;
+}
+
+.experience-card-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.experience-proyect-title {
+    color: var(--orange);
+}
+
+.experience-proyect-description {
+    color: var(--white-text);
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.experience-card-proyect {
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(30px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.experience-proyect-anchor {
+    display: block;
+    text-decoration: none;
+    margin-bottom: 10px;
+    color: var(--orange);
+    background-color: #202020;
+    padding: 10px;
+    border-radius: 12px;
+    transition: opacity .3s;
+}
+
+.experience-proyect-anchor:hover {
+    opacity: .8;
+}
+
+.experience-proyect-anchor i {
+    margin-right: 10px;
+}
+
+.skills {
+    width: 100%;
+    height: 100vh;
+    border-top: 2px solid var(--orange);
+    background: linear-gradient(rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.80)), url("https://wallpapercave.com/wp/wp4079864.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.skills-cards {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(3, auto);
+    gap: 20px;
+    max-width: 55%;
+    width: 50%;
+}
+
+.skills-card {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(30px);
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    transition: opacity .3s;
+}
+
+.skills-card:hover {
+    opacity: .8;
+    cursor: pointer;
+}
+
+.skills-container_img {
+    border: 1px solid var(--orange);
+    background-color: #202020;
+    border-radius: 50%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skills-img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.skills-paragraph {
+    max-width: 32%;
+}
+
+.skills-title {
+    color: var(--white-text);
+    margin-top: 30px;
+}
+
+.skills-text {
+    color: var(--white-text);
+    line-height: 1.5;
+    letter-spacing: 1px;
+    font-size: 17px;
+}
+
+.degrees {
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    padding: 50px 0 120px 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.80)), url("https://cdn.discordapp.com/attachments/1008885821027405958/1031069847418847313/wallpaperbetter.com_2560x1080.jpg");
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    border-top: 2px solid var(--orange);
+}
+
+.degrees div {
+    margin: 15px auto;
+    text-align: center;
+}
+
+.degrees-degree {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 60%;
+    gap: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(30px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 15px;
+}
+
+.degrees-title {
+    color: var(--white-text);
+    font-style: italic;
+    font-weight: 600;
+}
+
+.degrees-image {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.degrees-explain {
+    max-width: 30%;
+    color: var(--white-text);
+}
+
+.degrees-explain span {
+    color: var(--orange);
+}
+
+.degrees-image:first-child {
+    background-color: #fff;
+}
+
+.ReactModalPortal > div {
+    opacity: 0;
+}
+
+.ReactModalPortal .ReactModal__Overlay {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    transition: opacity .2s ease-in-out;
+    z-index: 2000;
+}
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+    opacity: 1;
+}
+
+.ReactModalPortal .ReactModal__Overlay--before-close {
+    opacity: 0;
+}
+
+.modal {
+    background-color: #14141497;
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 20px;
+    display: inline;
+    max-width: 500px;
+    height: fit-content;
+    outline: none;
+    border: none;
+}
+
+.modal-background {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    position: fixed;
+}
+
+.contact-title {
+    color: var(--orange);
+    font-style: italic;
+    font-weight: 600;
+}
+
+.contact {
+    align-items: center;
+    background-color: #202020;
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 15px;
+    transition: all .4s;
+    text-decoration: none;
+}
+
+.contact p {
+    color: var(--white-text);
+}
+
+.contact:hover {
+    background-color: #2a2929;
+    cursor: pointer;
+}
+
+.contact-button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 8px;
+    border-radius: 7px;
+    background-color: var(--orange);
+    color: var(--white-text);
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: opacity .3s;
+    cursor: pointer;
+}
+
+.contact-button:hover {
+    opacity: 0.8;
+}
+
+.setlanguage {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.setlanguage-title {
+    color: var(--orange);
+    text-align: center;
+    font-weight: 500;
+}
+
+.setlanguage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.setlanguage-buttons {
+    display: flex;
+    gap: 50px
+}
+
+.setlanguage-flag {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.setlanguage-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    transition: opacity .5s;
+    cursor: pointer;
+}
+
+.setlanguage-button:hover {
+    opacity: 0.6;
+}
+
+#linkedin {
+    color: rgb(14, 111, 222);
+    font-size: 30px;
+}
+
+#mail {
+    color: rgb(132, 183, 240);
+    font-size: 30px;
+}
+
+#telephone {
+    color: rgb(108, 198, 96);
+    font-size: 30px;
+}
+
+.curved {
+    position: absolute;
+    bottom: -1.8%;
+    width: 100%;
+    background: #202020;
+    height: 10vh;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px
+}
+
+.curved h1 {
+    color: var(--orange)
+}
+
+.curved p {
+    color: var(--white-text)
+}
+
+html {
+    scroll-snap-type: y mandatory;
+}
+
+.home, .about, .experience, .skills, .degrees {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    max-width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    background-color: rgb(93, 93, 93);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(74, 74, 74);
+    cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+    .about-image {
+        width: 300px;
+        height: 450px
+    }
+    .about-me {
+        max-width: 50%
+    }
+    .experience {
+        flex-direction: column;
+        text-align: center;
+        height: fit-content;
+        padding: 50px 0;
+    }
+    .experience-paragraph {
+        max-width: 90%;
+        margin-bottom: 50px;
+    }
+    .experience-cards {
+        width: 90%;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 1050px) {
+    .skills {
+        flex-direction: column-reverse;
+        padding: 80px 0;
+        text-align: center;
+    }
+
+    .skills-cards {
+        grid-template-columns: repeat(4, auto);
+        grid-template-rows: repeat(4, auto);
+        width: 95%;
+        max-width: 100%;
+    }
+
+    .skills-paragraph {
+        margin-bottom: 50px;
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 940px) {
+    .experience-card_github {
+        flex-direction: column;
+    }
+    .experience-card-section {
+        margin-top: 20px;
+        background-color: #202020;
+        padding: 10px;
+        width: 100%;
+    }
+    .experience-card-section_title {
+        font-size: 18px;
+    }
+    .experience-card-section_text {
+        font-size: 12px;
+    }
+    .navbar-items {
+        display: none;
+    }
+    .navbar-brand {
+        width: fit-content;
+    }
+    .home {
+        gap: 20px;
+    }
+    .home-anchor {
+        width: 20px;
+        height: 20px;
+        font-size: 18px;
+    }
+    .about {
+        flex-direction: column;
+        height: fit-content;
+        padding: 50px 0
+    }
+    .home-title {
+        font-size: 30px
+    }
+    .home-description {
+        font-size: 15px;
+    }
+    .about-information {
+        grid-template-columns: auto
+    }
+    .about-me {
+        max-width: 90%;
+        text-align: center;
+    }
+    .about-image {
+        margin-bottom: 50px;
+    }
+
+    .degrees {
+        height: fit-content;
+        padding: 50px 0;
+    }
+
+    .degrees-image {
+        width: 70px;
+        height: 70px;
+    }
+    .degrees-title {
+        font-size: 16px;
+    }
+    .degrees-explain {
+        font-size: 12px;
+    }
+    .contact-title {
+        font-size: 30px;
+    }
+    #linkedin {
+        font-size: 15px;
+    }
+    #mail {
+        font-size: 15px;
+    }
+    #telephone {
+        font-size: 15px;
+    }  
+    .modal {
+        width: 80%;
+    }
+    .contact p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 700px) {
+    .experience-cards {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .skills {
+        height: fit-content;
+    }
+
+    .skills-cards {
+        grid-template-columns: auto auto;
+        grid-template-rows: repeat(5, auto);
+        width: 90%;
+    }
+
+    .skills-card {
+        width: auto;
+    }
+    .degrees-degree {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .degrees-explain {
+        max-width: 90%;
+        
+    }
+}
+
+@media (max-width: 600px) {
+    html {
+        scroll-snap-type: none;
+    }
+}
+
+.fadeIn {
+    animation: 0.5s fadeIn linear;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
