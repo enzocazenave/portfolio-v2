@@ -747,14 +747,14 @@ body {
     color: var(--white-text)
 }
 
-html {
+/*html {
     scroll-snap-type: y mandatory;
 }
 
 .home, .about, .experience, .skills, .degrees {
     scroll-snap-align: center;
     scroll-snap-stop: always;
-}
+}*/
 
 ::-webkit-scrollbar {
     background-color: transparent;
