@@ -463,8 +463,8 @@ body {
 
 .skills-cards {
     display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     gap: 20px;
     max-width: 55%;
     width: 50%;
@@ -820,6 +820,12 @@ body {
     }
 }
 
+@media (max-width: 1010px) {
+    .navbar-items {
+        display: none;
+    }
+}
+
 @media (max-width: 940px) {
     .experience-card_github {
         flex-direction: column;
@@ -835,9 +841,6 @@ body {
     }
     .experience-card-section_text {
         font-size: 12px;
-    }
-    .navbar-items {
-        display: none;
     }
     .navbar-brand {
         width: fit-content;
@@ -918,8 +921,8 @@ body {
     }
 
     .skills-cards {
-        grid-template-columns: auto auto;
-        grid-template-rows: repeat(5, auto);
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
         width: 90%;
     }
 
